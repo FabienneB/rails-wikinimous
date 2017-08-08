@@ -1,0 +1,18 @@
+<div class="container ">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 box-shadow">
+      <h1 class = "text-center">Articles list</h1>
+      <ul class = "list-unstyled">
+      <% @articles.each do |article| %>
+        <li>
+          <%= link_to article.title, article_path(article.id) %> - Content : <i><%= article.content %></i> -
+          <%=  link_to 'Delete an article', article_path(article.id), method: :delete %> ou
+          <%=  link_to 'Update an article', edit_article_path(article.id) %>
+        </li>
+      <% end %>
+      </ul>
+
+      <%= link_to "New article", new_article_path, class: "btn btn-primary btn-large btn-block btn-margin"%>
+    </div>
+  </div>
+</div>
